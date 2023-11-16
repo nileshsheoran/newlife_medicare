@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:newlife_medicare/doctor/database/patient_dp_helper.dart';
 import 'package:newlife_medicare/home_screen.dart';
+import 'package:newlife_medicare/patient/ui/login_screen.dart';
 import 'package:newlife_medicare/routes.dart';
-
-void main()async{
+import 'package:firebase_core/firebase_core.dart';
+Future<void> main()async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   WidgetsFlutterBinding.ensureInitialized();
  await PatientDpHelper.createDatabase();
 
@@ -24,7 +27,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home:const LoginScreen(),
     );
   }
 }

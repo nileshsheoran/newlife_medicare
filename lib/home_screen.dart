@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:newlife_medicare/routes.dart';
 
@@ -14,8 +15,19 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text(
-            'HomeScreen',
+          title: Row(
+            children: [
+              const Text('Home Screen'),
+              IconButton(
+                onPressed: () async {
+                  await FirebaseAuth.instance.signOut();
+                  if (mounted) {
+                    Navigator.pop(context);
+                  }
+                },
+                icon: const Icon(Icons.logout),
+              )
+            ],
           ),
         ),
         body: Center(
@@ -25,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                   Navigator.pushNamed(context,RouteConst.addPatient);
+                    Navigator.pushNamed(context,RouteConst.addPatient);
                   },
                   child: const Text('Add Patient'),
                 ),
@@ -34,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                  Navigator.pushNamed(context, RouteConst.showPatient);
+                    Navigator.pushNamed(context, RouteConst.showPatient);
                   },
                   child: const Text('Show Patient'),
                 ),
@@ -43,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                   Navigator.pushNamed(context, RouteConst.addDoctor);
+                    Navigator.pushNamed(context, RouteConst.addDoctor);
                   },
                   child: const Text('Add Doctor'),
                 ),
@@ -52,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                   Navigator.pushNamed(context, RouteConst.showDoctor);
+                    Navigator.pushNamed(context, RouteConst.showDoctor);
                   },
                   child: const Text('Show Doctors'),
                 ),
@@ -61,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                   Navigator.pushNamed(context, RouteConst.addCategory);
+                    Navigator.pushNamed(context, RouteConst.addCategory);
                   },
                   child: const Text('Add Category'),
                 ),
