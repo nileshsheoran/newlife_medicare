@@ -44,7 +44,7 @@ class _ShowCategoryScreenState extends State<ShowCategoryScreen> {
                       const Text(
                         StringConst.categoryIdText,
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -113,7 +113,7 @@ class _ShowCategoryScreenState extends State<ShowCategoryScreen> {
                       const Text(
                         StringConst.categoryHintTextCategory,
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
